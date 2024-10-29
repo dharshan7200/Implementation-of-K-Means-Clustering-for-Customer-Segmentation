@@ -7,17 +7,18 @@ To write a program to implement the K Means Clustering for Customer Segmentation
 1. Hardware – PCs
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
-## Algorithm
-1.Import the necessary packages using import statement.
+## Algorithm:
 
-2.Read the given csv file using read_csv() method and print the number of contents to be displayed using df.head().
+1.Load the Mall_customers.csv dataset, inspect initial rows and check for missing values to understand the data structure.
 
-3.Import KMeans and use for loop to cluster the data.
+2. Use the Elbow Method to determine the optimal number of clusters by training multiple KMeans models (from 1 to 10 clusters) and recording the Within-Cluster Sum of Squares (WCSS).
 
-4.Predict the cluster and plot data graphs.
+3. Plot the WCSS values against the number of clusters to identify the optimal cluster count visually.
 
-5.Print the outputs and end the program
+4. Train a KMeans model with 5 clusters (based on the elbow point), and predict the cluster for each customer.
 
+5. Visualize the clusters by plotting "Annual Income" against "Spending Score" for each cluster, using different colors for clear segmentation.
+ 
 ## Program:
 ```
 /*
@@ -56,6 +57,18 @@ km.fit(data.iloc[:,3:])
 y_pred =km.predict(data.iloc[:,3:])
 y_pred
 
+data["cluster"]=y_pred
+
+df0=data[data["cluster"]==0]
+
+df1=data[data["cluster"]==1]
+
+df2=data[data["cluster"]==2]
+
+df3=data[data["cluster"]==3]
+
+df4=data[data["cluster"]==4]
+
 df0.head()
 
 df1.head()
@@ -77,19 +90,34 @@ plt.title("Customer Segments")
 ```
 
 ## Output:
-![Screenshot 2024-10-17 141847](https://github.com/user-attachments/assets/abf78096-7812-44e2-a91a-49fde8bbc06a)
-![Screenshot 2024-10-17 141856](https://github.com/user-attachments/assets/d086cad3-8bf5-4c3a-b2a7-63b9c9b39464)
-![Screenshot 2024-10-17 141904](https://github.com/user-attachments/assets/c915cebe-0ce3-4176-8401-22a04b49e0dd)
-![Screenshot 2024-10-17 141922](https://github.com/user-attachments/assets/c2f87d66-4e44-4af6-a5b5-bd8fd24908dc)
-![Screenshot 2024-10-17 141932](https://github.com/user-attachments/assets/48574418-c177-4b8b-b771-607ef0acb23e)
-![Screenshot 2024-10-17 141942](https://github.com/user-attachments/assets/c23a47cb-f83c-4a80-8804-b7f9872fab81)
-![Screenshot 2024-10-17 141948](https://github.com/user-attachments/assets/28f556e0-8718-416f-8fcb-9d01fe65b718)
-![Screenshot 2024-10-17 141955](https://github.com/user-attachments/assets/21162449-0fc3-4341-a011-1c2062bff558)
-![Screenshot 2024-10-17 142002](https://github.com/user-attachments/assets/25eb3f39-97ce-4e30-a8a5-61cfe57e08dc)
-![Screenshot 2024-10-17 142008](https://github.com/user-attachments/assets/45333978-5e4d-4909-9314-b5a5d23bb3c4)
-![Screenshot 2024-10-17 142020](https://github.com/user-attachments/assets/6e214a8c-e7e1-4adb-a143-301c6477f169)
 
+1. DATA.HEAD():
+   
+![Screenshot 2024-10-29 151337](https://github.com/user-attachments/assets/79ae05b9-4e89-4432-8aee-0480c4ada305)
 
+2.DATA.INFO():
+
+![Screenshot 2024-10-29 151344](https://github.com/user-attachments/assets/72310976-385f-4274-9769-41f7fda00f45)
+
+3.DATA.ISNULL().SUM():
+
+![Screenshot 2024-10-29 151350](https://github.com/user-attachments/assets/59d1c97c-16c0-4ec6-bc49-f7335a7cc024)
+
+4.PLOT USING ELBOW METHOD:
+
+![Screenshot 2024-10-29 151401](https://github.com/user-attachments/assets/9ccdd792-f8a5-4f19-90e4-58dfc0bc1c11)
+
+5.K-MEANS CLUSTERING:   
+
+![Screenshot 2024-10-29 151409](https://github.com/user-attachments/assets/9b9814b9-7545-4f31-84ca-7955ac821490)
+
+6.Y-PRED ARRAY:
+
+![Screenshot 2024-10-29 151417](https://github.com/user-attachments/assets/8037e225-4be5-4cc7-8f27-607efe8fad0e)
+
+7.CUSTOMER SEGMENT:
+
+![Screenshot 2024-10-29 151425](https://github.com/user-attachments/assets/f9ceae72-62ec-4ff3-9b25-531f030dc6a3)
 
 ## Result:
 Thus the program to implement the K Means Clustering for Customer Segmentation is written and verified using python programming.
